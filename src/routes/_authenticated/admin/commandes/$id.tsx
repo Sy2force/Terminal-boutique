@@ -8,8 +8,8 @@ type PaymentMethod = Database["public"]["Enums"]["payment_method"];
 
 const paymentMethods = [
   { value: "cash", label: "Espèces" },
-  { value: "in_store_card", label: "CB en boutique" },
-  { value: "delivery_card", label: "CB à la livraison" },
+  { value: "card_in_store", label: "CB en boutique" },
+  { value: "card_on_delivery", label: "CB à la livraison" },
   { value: "bank_transfer", label: "Virement" },
 ];
 

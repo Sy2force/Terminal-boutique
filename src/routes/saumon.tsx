@@ -7,13 +7,13 @@ import { mapDbProduct } from "@/lib/mappers";
 
 export const Route = createFileRoute("/saumon")({
   loader: async () => {
-    const [content, products] = await Promise.all([getPageContent({ data: "contact" }), listProducts()]);
+    const [content, products] = await Promise.all([getPageContent({ data: "saumon" }), listProducts()]);
     return {
       content,
       products: (products ?? []).map(mapDbProduct).filter((p) => p.department === "saumon"),
     };
   },
-  head: ({ loaderData }) => ({
+  head: () => ({
     meta: [
       { title: "Saumon fumé Sarfati — TERMINAL 3" },
       { name: "description", content: "Saumon fumé Sarfati à Jérusalem. Fumage lent et tranchage à la main." },

@@ -74,7 +74,7 @@ CREATE TYPE promotion_type AS ENUM ('percent', 'fixed', 'special_price', 'x_for_
 CREATE TYPE banner_placement AS ENUM ('home_top', 'home_mid', 'category', 'global_ribbon');
 CREATE TYPE banner_theme AS ENUM ('gold', 'bordeaux', 'dark');
 CREATE TYPE page_key AS ENUM (
-  'index', 'vins', 'spiritueux', 'sarfati', 'charcuterie', 'plateaux',
+  'index', 'vins', 'spiritueux', 'sarfati', 'saumon', 'charcuterie', 'plateaux',
   'prestige', 'promotions', 'nouveautes', 'bonnes-affaires', 'contact'
 );
 

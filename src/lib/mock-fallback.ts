@@ -125,6 +125,15 @@ export function fallbackPageContent(pageKey: string) {
       seo_title: "Sarfati — Saumon fumé — TERMINAL 3",
       seo_description: "Saumon fumé à Jérusalem.",
     },
+    saumon: {
+      page_key: "saumon",
+      hero_title: "Saumon fumé Sarfati",
+      hero_eyebrow: "Signature",
+      hero_subtitle: "Le saumon fumé Sarfati, fumage lent et tranchage à la main.",
+      intro_html: null,
+      seo_title: "Saumon fumé Sarfati — TERMINAL 3",
+      seo_description: "Saumon fumé à Jérusalem.",
+    },
     charcuterie: {
       page_key: "charcuterie",
       hero_title: "Charcuterie française",
