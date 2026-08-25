@@ -56,7 +56,7 @@ export function Header({ onOpenSearch }: HeaderProps) {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-80 h-[4.5rem] flex items-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          scrolled ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 shadow-gold" : "bg-transparent border-b border-primary/5"
+          scrolled ? "bg-background/95 backdrop-blur-xl border-b border-neon-gold glow-gold" : "bg-transparent border-b border-primary/10"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">

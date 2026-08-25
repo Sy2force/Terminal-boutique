@@ -80,16 +80,16 @@ function HomePage() {
         </section>
       )}
 
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-noise">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-noise cave-light">
         <img
           src={IMAGES.hero}
           alt="Sélection de bouteilles de vin et champagne sur pierre noire"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
-        <div className="absolute inset-0 grain-gold opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 grain-gold opacity-80" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 py-32">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
@@ -103,7 +103,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.14em] uppercase leading-none mb-6 text-shadow-gold"
+            className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.14em] uppercase leading-none mb-6 text-neon-gold"
           >
             {content.hero_title ?? SITE.name}
           </motion.h1>
@@ -111,7 +111,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-2xl md:text-3xl lg:text-4xl italic text-gold-gradient mb-8"
+            className="font-display text-2xl md:text-3xl lg:text-4xl italic text-gold-gradient mb-8 text-neon-amber"
           >
             « {content.hero_subtitle ?? SITE.tagline} »
           </motion.p>
@@ -138,7 +138,7 @@ function HomePage() {
             </Link>
             <Link
               to="/promotions"
-              className="inline-flex items-center justify-center gap-3 border border-primary/50 text-primary px-8 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-primary hover:text-primary-foreground transition-colors shimmer"
+              className="btn-ghost-neon inline-flex items-center justify-center gap-3 px-8 py-4 text-[11px] uppercase tracking-[0.3em] shimmer"
             >
               Voir les promotions
               <ArrowUpRight className="w-4 h-4" />

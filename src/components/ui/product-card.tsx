@@ -24,7 +24,7 @@ export function ProductCard({ product, showArrival }: ProductCardProps) {
   const percentOff = promo?.type === "percent" ? promo.value : hasCompare ? Math.round(((product.compareAtPrice! - finalPrice) / product.compareAtPrice!) * 100) : 0;
 
   return (
-    <article className="card-luxe group rounded-[2px] overflow-hidden hover:card-luxe-hover relative">
+    <article className="card-luxe group rounded-[2px] overflow-hidden hover:card-luxe-hover relative glow-gold">
       <Link to="/produit/$slug" params={{ slug: product.slug }} className="block relative">
         <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
           <img
