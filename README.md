@@ -131,9 +131,38 @@ Si aucune variable d'env Supabase n'est définie, le site utilise automatiquemen
 
 ## Déploiement
 
-Le build produit `dist/client` (assets statiques) et `dist/server` (SSR). Vous pouvez :
-- exécuter `node server.mjs` sur un serveur Node,
-- ou déployer `dist/client` sur un CDN statique en adaptant le routing.
+Le build produit `dist/client` (assets statiques) et `dist/server` (SSR).
+
+### Render (recommandé)
+
+Un fichier `render.yaml` est inclus à la racine. Pour déployer sur Render :
+
+1. Connectez votre repo GitHub à Render.
+2. Créez un nouveau **Web Service**.
+3. Render détectera `render.yaml` et utilisera :
+   - Build : `npm ci && npm run build`
+   - Start : `npm run start`
+4. Renseignez les variables d'environnement dans le dashboard Render :
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `ADMIN_PASSWORD`
+
+### Vercel
+
+TanStack Start avec SSR nécessite une fonction serverless adaptée. Le projet n'inclut pas encore d'adaptateur Vercel. Le plus simple est donc **Render** ou tout serveur Node exécutant `npm run build` puis `npm run start`.
+
+### Manuel
+
+Sur un serveur Node avec `npm` :
+
+```bash
+npm ci
+npm run build
+npm run start
+```
+
+Le serveur écoute par défaut sur `http://localhost:3000`.
 
 ## Licence
 
