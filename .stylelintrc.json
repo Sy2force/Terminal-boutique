@@ -1,5 +1,5 @@
 {
   "rules": {
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["theme", "utility", "layer", "import"] }]
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["tailwind", "apply", "layer", "import"] }]
   }
 }

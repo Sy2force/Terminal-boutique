@@ -2,7 +2,7 @@
 
 ## Stack
 - TanStack Start (React 19) + Vite 7
-- Tailwind CSS v4 via `src/styles.css` (no `tailwind.config.js`)
+- Tailwind CSS v3 via `tailwind.config.ts` + PostCSS
 - `motion`, `lucide-react`, `sonner`
 - Supabase client (`@supabase/supabase-js`, `@supabase/ssr`) via TanStack Start server functions
 
