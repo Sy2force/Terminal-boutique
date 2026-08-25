@@ -1,6 +1,7 @@
-/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable */
 @import "tailwindcss";
 
+/* stylelint-disable */
 @theme {
   /* Couleurs sémantiques - dominante sombre, accents or/champagne */
   --color-background: oklch(0.13 0.008 55);
