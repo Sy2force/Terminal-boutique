@@ -31,6 +31,22 @@ function AdminDashboard() {
         ))}
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { label: "Produits", to: "/admin/produits", desc: "Gérer le catalogue" },
+          { label: "Banderoles", to: "/admin/banderoles", desc: "Promos visuelles" },
+          { label: "Zones", to: "/admin/livraison", desc: "Rayons & frais" },
+          { label: "Médiathèque", to: "/admin/medias", desc: "Images & fichiers" },
+          { label: "Promotions", to: "/admin/promotions", desc: "Règles & codes" },
+          { label: "Pages", to: "/admin/pages", desc: "Textes publics" },
+        ].map((l) => (
+          <Link key={l.to} to={l.to} className="card-luxe p-5 rounded-[2px] hover:card-luxe-hover block">
+            <p className="text-cream text-[11px] uppercase tracking-[0.25em]">{l.label}</p>
+            <p className="text-muted-foreground text-xs font-light mt-1">{l.desc}</p>
+          </Link>
+        ))}
+      </div>
+
       <div className="card-luxe rounded-[2px] overflow-hidden">
         <div className="p-6 border-b border-primary/10 flex items-center justify-between">
           <h2 className="font-display text-2xl text-cream">Dernières commandes</h2>
