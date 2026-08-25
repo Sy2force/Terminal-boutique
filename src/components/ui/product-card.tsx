@@ -24,16 +24,16 @@ export function ProductCard({ product, showArrival }: ProductCardProps) {
   const percentOff = promo?.type === "percent" ? promo.value : hasCompare ? Math.round(((product.compareAtPrice! - finalPrice) / product.compareAtPrice!) * 100) : 0;
 
   return (
-    <article className="card-luxe group rounded-[2px] overflow-hidden hover:card-luxe-hover">
+    <article className="card-luxe group rounded-[2px] overflow-hidden hover:card-luxe-hover relative">
       <Link to="/produit/$slug" params={{ slug: product.slug }} className="block relative">
         <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
           <img
             src={product.image}
             alt={product.name}
             loading="lazy"
-            className="h-full w-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            className="h-full w-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
         </div>
         <div className="absolute top-3 left-3 flex flex-wrap gap-2">
           {product.isNew && (

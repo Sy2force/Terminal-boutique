@@ -60,8 +60,8 @@ function HomePage() {
               {homeBanners.map((b: any) => (
                 <div
                   key={b.id}
-                  className={`p-4 md:p-6 border rounded-[2px] flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
-                    b.theme === "bordeaux" ? "bg-bordeaux/15 border-bordeaux/30" : "bg-secondary/40 border-primary/15"
+                  className={`card-luxe p-4 md:p-6 rounded-[2px] flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
+                    b.theme === "bordeaux" ? "border-bordeaux/30 bg-gradient-to-r from-bordeaux/15 to-secondary/40" : ""
                   }`}
                 >
                   <div>
@@ -80,16 +80,16 @@ function HomePage() {
         </section>
       )}
 
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-noise">
         <img
           src={IMAGES.hero}
           alt="Sélection de bouteilles de vin et champagne sur pierre noire"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
-        <div className="absolute inset-0 grain-gold opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 grain-gold opacity-70" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 py-32">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
@@ -131,14 +131,14 @@ function HomePage() {
           >
             <Link
               to="/nouveautes"
-              className="inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-[11px] uppercase tracking-[0.3em] hover:opacity-90 transition-opacity"
+              className="btn-gold inline-flex items-center justify-center gap-3 px-8 py-4 text-[11px] uppercase tracking-[0.3em]"
             >
               Découvrir les nouveautés
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/promotions"
-              className="inline-flex items-center justify-center gap-3 border border-primary/50 text-primary px-8 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="inline-flex items-center justify-center gap-3 border border-primary/50 text-primary px-8 py-4 text-[11px] uppercase tracking-[0.3em] hover:bg-primary hover:text-primary-foreground transition-colors shimmer"
             >
               Voir les promotions
               <ArrowUpRight className="w-4 h-4" />
