@@ -28,6 +28,7 @@ export interface Product {
   isFeatured?: boolean;
   isPremium?: boolean;
   isAlcohol: boolean;
+  summary?: string;
   createdAt: string;
   createdDaysAgo?: number;
 }

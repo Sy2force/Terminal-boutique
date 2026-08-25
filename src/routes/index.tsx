@@ -1,19 +1,38 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { IMAGES, NEWEST, ACTIVE_PROMOTIONS } from "@/data/catalog";
+import { IMAGES } from "@/data/catalog";
 import { SITE, whatsappHref } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ProductGrid } from "@/components/ui/product-grid";
+import { listProducts } from "@/lib/functions/public.functions";
+import { listPromotions } from "@/lib/functions/public.functions";
+import { listBanners } from "@/lib/functions/public.functions";
+import { getPageContent } from "@/lib/functions/public.functions";
+import { mapDbProduct, mapDbPromotion } from "@/lib/mappers";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
+  loader: async () => {
+    const [content, banners, products, promotions] = await Promise.all([
+      getPageContent({ data: "index" }),
+      listBanners(),
+      listProducts(),
+      listPromotions(),
+    ]);
+    return {
+      content,
+      banners: banners ?? [],
+      products: (products ?? []).map(mapDbProduct),
+      promotions: (promotions ?? []).map(mapDbPromotion),
+    };
+  },
+  head: ({ loaderData }) => ({
     meta: [
-      { title: "TERMINAL 3 — Cave à vin & épicerie fine à Jérusalem" },
-      { name: "description", content: "Luxury Wine & Fine Delicatessen à Jérusalem. Vins, grands crus, spiritueux, saumon fumé Sarfati et charcuterie française." },
-      { property: "og:title", content: "TERMINAL 3 — Cave à vin & épicerie fine à Jérusalem" },
-      { property: "og:description", content: "Découvrez notre sélection de vins, spiritueux, saumons fumés et charcuteries françaises." },
+      { title: loaderData?.content?.seo_title ?? "TERMINAL 3" },
+      { name: "description", content: loaderData?.content?.seo_description ?? "Luxury Wine & Fine Delicatessen à Jérusalem." },
+      { property: "og:title", content: loaderData?.content?.seo_title ?? "TERMINAL 3" },
+      { property: "og:description", content: loaderData?.content?.seo_description ?? "" },
     ],
   }),
   component: HomePage,
@@ -27,10 +46,40 @@ const universes = [
 ];
 
 function HomePage() {
-  const newest = NEWEST.slice(0, 8);
+  const { content, banners, products, promotions } = Route.useLoaderData();
+  const newest = products.filter((p) => p.isNew).slice(0, 8);
+  const activePromotions = promotions.slice(0, 3);
+  const homeBanners = banners.filter((b: any) => b.placement === "home_top" || b.placement === "home_mid");
 
   return (
     <>
+      {homeBanners.length > 0 && (
+        <section className="pt-[4.5rem] bg-background">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 py-4">
+            <div className="space-y-3">
+              {homeBanners.map((b: any) => (
+                <div
+                  key={b.id}
+                  className={`p-4 md:p-6 border rounded-[2px] flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
+                    b.theme === "bordeaux" ? "bg-bordeaux/15 border-bordeaux/30" : "bg-secondary/40 border-primary/15"
+                  }`}
+                >
+                  <div>
+                    <h3 className="font-display text-xl text-cream">{b.title}</h3>
+                    {b.subtitle && <p className="text-gold-soft text-sm mt-1">{b.subtitle}</p>}
+                  </div>
+                  {b.cta_href && (
+                    <Link to={b.cta_href} className="btn-gold btn-gold-hover px-6 py-2 text-[10px] uppercase tracking-[0.25em] text-center">
+                      {b.cta_label ?? "Découvrir"}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <img
           src={IMAGES.hero}
@@ -48,15 +97,15 @@ function HomePage() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="eyebrow block mb-6"
           >
-            Luxury Wine & Fine Delicatessen · Jérusalem
+            {content.hero_eyebrow ?? "Luxury Wine & Fine Delicatessen · Jérusalem"}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.14em] uppercase leading-none mb-6"
+            className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.14em] uppercase leading-none mb-6 text-shadow-gold"
           >
-            {SITE.name}
+            {content.hero_title ?? SITE.name}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -64,7 +113,7 @@ function HomePage() {
             transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-2xl md:text-3xl lg:text-4xl italic text-gold-gradient mb-8"
           >
-            « {SITE.tagline} »
+            « {content.hero_subtitle ?? SITE.tagline} »
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -72,7 +121,7 @@ function HomePage() {
             transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="text-muted-foreground max-w-xl text-base md:text-lg leading-relaxed font-light mb-12"
           >
-            Découvrez notre sélection de vins, grands crus, spiritueux, saumons fumés, charcuteries françaises et nouveautés.
+            {content.intro_html ?? "Découvrez notre sélection de vins, grands crus, spiritueux, saumons fumés, charcuteries françaises et nouveautés."}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -170,10 +219,10 @@ function HomePage() {
         </Reveal>
         <Reveal delay={0.1}>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ACTIVE_PROMOTIONS.map((promo) => (
+            {activePromotions.map((promo: any) => (
               <div
                 key={promo.id}
-                className="card-luxe p-8 rounded-[2px] hover:card-luxe-hover"
+                className="card-luxe p-8 rounded-[2px] hover:card-luxe-hover glow-gold"
               >
                 <h3 className="font-display text-2xl text-cream mb-2">{promo.name}</h3>
                 {promo.subtitle && <p className="text-gold text-sm mb-4">{promo.subtitle}</p>}

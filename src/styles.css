@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* Couleurs sémantiques */
-  --color-background: oklch(0.14 0.008 60);
-  --color-foreground: oklch(0.94 0.012 85);
-  --color-card: oklch(0.18 0.009 60);
-  --color-primary: oklch(0.79 0.108 85);
-  --color-primary-foreground: oklch(0.14 0.008 60);
-  --color-secondary: oklch(0.24 0.012 60);
-  --color-muted: oklch(0.22 0.01 60);
-  --color-muted-foreground: oklch(0.68 0.018 80);
-  --color-accent: oklch(0.28 0.05 25);
+  /* Couleurs sémantiques - dominante sombre, accents or/champagne */
+  --color-background: oklch(0.13 0.008 55);
+  --color-foreground: oklch(0.82 0.014 80);
+  --color-card: oklch(0.17 0.009 55);
+  --color-primary: oklch(0.76 0.112 78);
+  --color-primary-foreground: oklch(0.13 0.008 55);
+  --color-secondary: oklch(0.21 0.012 55);
+  --color-muted: oklch(0.2 0.01 55);
+  --color-muted-foreground: oklch(0.56 0.016 75);
+  --color-accent: oklch(0.26 0.05 22);
   --color-destructive: oklch(0.52 0.16 25);
-  --color-border: oklch(0.3 0.014 70 / 60%);
-  --color-input: oklch(0.3 0.014 70 / 70%);
-  --color-ring: oklch(0.79 0.108 85 / 60%);
+  --color-border: oklch(0.35 0.014 65 / 55%);
+  --color-input: oklch(0.35 0.014 65 / 65%);
+  --color-ring: oklch(0.76 0.112 78 / 60%);
 
   /* Couleurs de marque */
-  --color-gold: oklch(0.79 0.108 85);
-  --color-gold-soft: oklch(0.86 0.062 88);
-  --color-champagne: oklch(0.92 0.038 92);
-  --color-bordeaux: oklch(0.3 0.09 20);
-  --color-cream: oklch(0.95 0.015 88);
-  --color-charcoal: oklch(0.19 0.006 60);
+  --color-gold: oklch(0.76 0.112 78);
+  --color-gold-soft: oklch(0.84 0.062 85);
+  --color-champagne: oklch(0.88 0.04 88);
+  --color-bordeaux: oklch(0.32 0.09 18);
+  --color-cream: oklch(0.82 0.014 80);
+  --color-charcoal: oklch(0.17 0.006 55);
 
   /* Typographie */
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
@@ -85,8 +85,44 @@
 
 @utility grain-gold {
   background-image:
-    radial-gradient(circle at 0% 0%, oklch(0.79 0.108 85 / 22%) 0%, transparent 55%),
-    radial-gradient(circle at 100% 100%, oklch(0.3 0.09 20 / 45%) 0%, transparent 55%);
+    radial-gradient(circle at 0% 0%, oklch(0.79 0.108 85 / 18%) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, oklch(0.3 0.09 20 / 38%) 0%, transparent 55%);
+}
+
+@utility glow-gold {
+  box-shadow: 0 0 40px -12px oklch(0.76 0.112 78 / 35%);
+}
+
+@utility text-shadow-gold {
+  text-shadow: 0 2px 24px oklch(0.76 0.112 78 / 25%);
+}
+
+@utility border-gold {
+  border-color: oklch(0.76 0.112 78 / 35%);
+}
+
+@utility input-luxe {
+  background: linear-gradient(180deg, oklch(0.19 0.009 55 / 80%), oklch(0.16 0.008 52 / 80%));
+  border: 1px solid oklch(0.76 0.112 78 / 18%);
+  color: oklch(0.82 0.014 80);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility input-luxe-focus {
+  border-color: oklch(0.76 0.112 78 / 55%);
+  box-shadow: 0 0 0 2px oklch(0.76 0.112 78 / 15%);
+}
+
+@utility btn-gold {
+  background: linear-gradient(100deg, oklch(0.7 0.11 75), oklch(0.8 0.1 82), oklch(0.72 0.11 76));
+  color: oklch(0.13 0.008 55);
+  box-shadow: 0 8px 30px -12px oklch(0.76 0.112 78 / 45%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+@utility btn-gold-hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -14px oklch(0.76 0.112 78 / 55%);
 }
 
 @layer base {

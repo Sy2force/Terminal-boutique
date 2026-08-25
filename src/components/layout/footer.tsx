@@ -18,7 +18,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="space-y-5">
-            <Link to="/" className="font-display text-cream text-xl tracking-[0.42em] uppercase block">
+            <Link to="/" className="font-display text-gold-gradient text-xl tracking-[0.42em] uppercase block">
               {SITE.name}
             </Link>
             <div className="rule-gold max-w-[120px]" />

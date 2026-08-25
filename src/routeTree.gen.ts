@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BonnesAffairesRouteImport } from './routes/bonnes-affaires'
 import { Route as CharcuterieRouteImport } from './routes/charcuterie'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as NouveautesRouteImport } from './routes/nouveautes'
 import { Route as PanierRouteImport } from './routes/panier'
 import { Route as PlateauxRouteImport } from './routes/plateaux'
@@ -70,6 +71,11 @@ const CharcuterieRoute = CharcuterieRouteImport.update({
 const CheckoutRoute = CheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NouveautesRoute = NouveautesRouteImport.update({
@@ -228,6 +234,7 @@ export interface FileRoutesByFullPath {
   '/bonnes-affaires': typeof BonnesAffairesRoute
   '/charcuterie': typeof CharcuterieRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/nouveautes': typeof NouveautesRoute
   '/panier': typeof PanierRoute
   '/plateaux': typeof PlateauxRoute
@@ -262,6 +269,7 @@ export interface FileRoutesByTo {
   '/bonnes-affaires': typeof BonnesAffairesRoute
   '/charcuterie': typeof CharcuterieRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/nouveautes': typeof NouveautesRoute
   '/panier': typeof PanierRoute
   '/plateaux': typeof PlateauxRoute
@@ -297,6 +305,7 @@ export interface FileRoutesById {
   '/bonnes-affaires': typeof BonnesAffairesRoute
   '/charcuterie': typeof CharcuterieRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/nouveautes': typeof NouveautesRoute
   '/panier': typeof PanierRoute
   '/plateaux': typeof PlateauxRoute
@@ -333,6 +342,7 @@ export interface FileRouteTypes {
     | '/bonnes-affaires'
     | '/charcuterie'
     | '/checkout'
+    | '/contact'
     | '/nouveautes'
     | '/panier'
     | '/plateaux'
@@ -367,6 +377,7 @@ export interface FileRouteTypes {
     | '/bonnes-affaires'
     | '/charcuterie'
     | '/checkout'
+    | '/contact'
     | '/nouveautes'
     | '/panier'
     | '/plateaux'
@@ -401,6 +412,7 @@ export interface FileRouteTypes {
     | '/bonnes-affaires'
     | '/charcuterie'
     | '/checkout'
+    | '/contact'
     | '/nouveautes'
     | '/panier'
     | '/plateaux'
@@ -437,6 +449,7 @@ export interface RootRouteChildren {
   BonnesAffairesRoute: typeof BonnesAffairesRoute
   CharcuterieRoute: typeof CharcuterieRoute
   CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
   NouveautesRoute: typeof NouveautesRoute
   PanierRoute: typeof PanierRoute
   PlateauxRoute: typeof PlateauxRoute
@@ -490,6 +503,13 @@ declare module '@tanstack/react-router' {
       path: '/checkout'
       fullPath: '/checkout'
       preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nouveautes': {
@@ -757,6 +777,7 @@ const rootRouteChildren: RootRouteChildren = {
   BonnesAffairesRoute: BonnesAffairesRoute,
   CharcuterieRoute: CharcuterieRoute,
   CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
   NouveautesRoute: NouveautesRoute,
   PanierRoute: PanierRoute,
   PlateauxRoute: PlateauxRoute,

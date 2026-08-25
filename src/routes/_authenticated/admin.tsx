@@ -40,19 +40,21 @@ function AdminLayout() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
-      <aside className="space-y-2 lg:sticky lg:top-28 h-fit">
-        <p className="eyebrow mb-4">Admin</p>
-        {links.map((l) => (
-          <Link
-            key={l.to}
-            to={l.to}
-            activeProps={{ className: "text-primary border-primary/50 bg-primary/10" }}
-            className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground border border-transparent px-3 py-2 hover:text-primary hover:border-primary/30 transition-colors"
-          >
-            {l.label}
-          </Link>
-        ))}
+    <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
+      <aside className="lg:sticky lg:top-28 h-fit p-6 border border-primary/10 bg-card/40 rounded-[2px]">
+        <p className="eyebrow mb-6 text-gold-soft">Administration</p>
+        <nav className="space-y-1">
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              activeProps={{ className: "text-primary border-primary/50 bg-primary/10" }}
+              className="block text-[11px] uppercase tracking-[0.2em] text-muted-foreground border border-transparent px-4 py-2.5 hover:text-primary hover:border-primary/30 transition-colors rounded-[2px]"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
       </aside>
       <main>
         <Outlet />
