@@ -1,7 +1,8 @@
-import { createFileRoute, useParams } from "@tanstack/react-router";
+import { createFileRoute, useParams, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { listAdminProducts, upsertProduct } from "@/lib/functions/admin.functions";
+import { listAdminProducts, upsertProduct, deleteProduct } from "@/lib/functions/admin.functions";
 import { useServerFn } from "@tanstack/react-start";
+import { MediaPicker } from "@/components/admin/media-picker";
 
 const departments = ["vins", "spiritueux", "saumon", "charcuterie", "plateaux"];
 const styles = ["Sec", "Fruité", "Boisé", "Doux"];
@@ -26,6 +27,7 @@ function ProductForm() {
   const initial = Route.useLoaderData();
   const { id } = useParams({ from: "/_authenticated/admin/produits/$id" });
   const mutate = useServerFn(upsertProduct);
+  const remove = useServerFn(deleteProduct);
 
   const [form, setForm] = useState({
     slug: initial?.slug ?? "",
@@ -108,12 +110,7 @@ function ProductForm() {
 
       <section className="space-y-6 card-luxe p-6 md:p-8 rounded-[2px]">
         <h2 className="font-display text-xl text-gold-soft">Média</h2>
-        <Field label="URL image" value={form.image_url} onChange={(v) => set("image_url", v)} />
-        {form.image_url && (
-          <div className="w-40 h-48 border border-primary/20 overflow-hidden bg-secondary">
-            <img src={form.image_url} alt="Aperçu" className="w-full h-full object-cover opacity-80" />
-          </div>
-        )}
+        <MediaPicker value={form.image_url} onChange={(v) => set("image_url", v)} />
       </section>
 
       <section className="space-y-6 card-luxe p-6 md:p-8 rounded-[2px]">
@@ -142,12 +139,33 @@ function ProductForm() {
         </div>
       </section>
 
-      <button
-        type="submit"
-        className="btn-gold btn-gold-hover px-10 py-4 text-[11px] uppercase tracking-[0.3em]"
-      >
-        Enregistrer le produit
-      </button>
+      <div className="flex flex-wrap items-center gap-4">
+        <button
+          type="submit"
+          className="btn-gold btn-gold-hover px-10 py-4 text-[11px] uppercase tracking-[0.3em]"
+        >
+          Enregistrer le produit
+        </button>
+        <Link
+          to="/admin/produits"
+          className="border border-primary/30 text-muted-foreground px-6 py-4 text-[11px] uppercase tracking-[0.3em] hover:border-primary hover:text-primary transition-colors rounded-[2px]"
+        >
+          Retour
+        </Link>
+        {id !== "new" && (
+          <button
+            type="button"
+            onClick={async () => {
+              if (!confirm("Supprimer ce produit ?")) return;
+              await remove({ data: id });
+              window.location.href = "/admin/produits";
+            }}
+            className="ml-auto text-destructive text-xs uppercase tracking-wider hover:text-cream transition-colors"
+          >
+            Supprimer
+          </button>
+        )}
+      </div>
     </form>
   );
 }
