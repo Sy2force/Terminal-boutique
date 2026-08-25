@@ -37,6 +37,7 @@ import { Route as AuthenticatedAdminPagesRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAdminPromotionsRouteImport } from './routes/_authenticated/admin/promotions'
 import { Route as AuthenticatedCompteEnviesRouteImport } from './routes/_authenticated/compte/envies'
 import { Route as AuthenticatedCompteFavorisRouteImport } from './routes/_authenticated/compte/favoris'
+import { Route as AuthenticatedCompteProfilRouteImport } from './routes/_authenticated/compte/profil'
 import { Route as AuthenticatedAdminCommandesIndexRouteImport } from './routes/_authenticated/admin/commandes/index'
 import { Route as AuthenticatedAdminCommandesIdRouteImport } from './routes/_authenticated/admin/commandes/$id'
 import { Route as AuthenticatedAdminProduitsIndexRouteImport } from './routes/_authenticated/admin/produits/index'
@@ -191,6 +192,12 @@ const AuthenticatedCompteFavorisRoute =
     path: '/favoris',
     getParentRoute: () => AuthenticatedCompteRoute,
   } as any)
+const AuthenticatedCompteProfilRoute =
+  AuthenticatedCompteProfilRouteImport.update({
+    id: '/profil',
+    path: '/profil',
+    getParentRoute: () => AuthenticatedCompteRoute,
+  } as any)
 const AuthenticatedAdminCommandesIndexRoute =
   AuthenticatedAdminCommandesIndexRouteImport.update({
     id: '/commandes/',
@@ -255,6 +262,7 @@ export interface FileRoutesByFullPath {
   '/admin/promotions': typeof AuthenticatedAdminPromotionsRoute
   '/compte/envies': typeof AuthenticatedCompteEnviesRoute
   '/compte/favoris': typeof AuthenticatedCompteFavorisRoute
+  '/compte/profil': typeof AuthenticatedCompteProfilRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/admin/commandes/$id': typeof AuthenticatedAdminCommandesIdRoute
   '/admin/produits/$id': typeof AuthenticatedAdminProduitsIdRoute
@@ -289,6 +297,7 @@ export interface FileRoutesByTo {
   '/admin/promotions': typeof AuthenticatedAdminPromotionsRoute
   '/compte/envies': typeof AuthenticatedCompteEnviesRoute
   '/compte/favoris': typeof AuthenticatedCompteFavorisRoute
+  '/compte/profil': typeof AuthenticatedCompteProfilRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/admin/commandes/$id': typeof AuthenticatedAdminCommandesIdRoute
   '/admin/produits/$id': typeof AuthenticatedAdminProduitsIdRoute
@@ -326,6 +335,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/promotions': typeof AuthenticatedAdminPromotionsRoute
   '/_authenticated/compte/envies': typeof AuthenticatedCompteEnviesRoute
   '/_authenticated/compte/favoris': typeof AuthenticatedCompteFavorisRoute
+  '/_authenticated/compte/profil': typeof AuthenticatedCompteProfilRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/admin/commandes/$id': typeof AuthenticatedAdminCommandesIdRoute
   '/_authenticated/admin/produits/$id': typeof AuthenticatedAdminProduitsIdRoute
@@ -363,6 +373,7 @@ export interface FileRouteTypes {
     | '/admin/promotions'
     | '/compte/envies'
     | '/compte/favoris'
+    | '/compte/profil'
     | '/admin/'
     | '/admin/commandes/$id'
     | '/admin/produits/$id'
@@ -397,6 +408,7 @@ export interface FileRouteTypes {
     | '/admin/promotions'
     | '/compte/envies'
     | '/compte/favoris'
+    | '/compte/profil'
     | '/admin'
     | '/admin/commandes/$id'
     | '/admin/produits/$id'
@@ -433,6 +445,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/promotions'
     | '/_authenticated/compte/envies'
     | '/_authenticated/compte/favoris'
+    | '/_authenticated/compte/profil'
     | '/_authenticated/admin/'
     | '/_authenticated/admin/commandes/$id'
     | '/_authenticated/admin/produits/$id'
@@ -659,6 +672,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCompteFavorisRouteImport
       parentRoute: typeof AuthenticatedCompteRoute
     }
+    '/_authenticated/compte/profil': {
+      id: '/_authenticated/compte/profil'
+      path: '/profil'
+      fullPath: '/compte/profil'
+      preLoaderRoute: typeof AuthenticatedCompteProfilRouteImport
+      parentRoute: typeof AuthenticatedCompteRoute
+    }
     '/_authenticated/admin/commandes/': {
       id: '/_authenticated/admin/commandes/'
       path: '/commandes'
@@ -741,6 +761,7 @@ const AuthenticatedAdminRouteWithChildren =
 interface AuthenticatedCompteRouteChildren {
   AuthenticatedCompteEnviesRoute: typeof AuthenticatedCompteEnviesRoute
   AuthenticatedCompteFavorisRoute: typeof AuthenticatedCompteFavorisRoute
+  AuthenticatedCompteProfilRoute: typeof AuthenticatedCompteProfilRoute
   AuthenticatedCompteCommandesIdRoute: typeof AuthenticatedCompteCommandesIdRoute
   AuthenticatedCompteCommandesIndexRoute: typeof AuthenticatedCompteCommandesIndexRoute
 }
@@ -748,6 +769,7 @@ interface AuthenticatedCompteRouteChildren {
 const AuthenticatedCompteRouteChildren: AuthenticatedCompteRouteChildren = {
   AuthenticatedCompteEnviesRoute: AuthenticatedCompteEnviesRoute,
   AuthenticatedCompteFavorisRoute: AuthenticatedCompteFavorisRoute,
+  AuthenticatedCompteProfilRoute: AuthenticatedCompteProfilRoute,
   AuthenticatedCompteCommandesIdRoute: AuthenticatedCompteCommandesIdRoute,
   AuthenticatedCompteCommandesIndexRoute:
     AuthenticatedCompteCommandesIndexRoute,

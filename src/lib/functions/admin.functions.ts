@@ -322,6 +322,38 @@ export const markOrderPaid = adminFn("POST")
     return { ok: true };
   });
 
+export const cancelOrder = adminFn("POST")
+  .validator((payload: { id: string; reason: string }) => payload)
+  .handler(async ({ context, data }) => {
+    const { user } = context as { user: { id: string } };
+    const admin = getAdminSupabase();
+
+    const { data: order, error: fetchError } = await admin.from("orders").select("*").eq("id", data.id).single();
+    if (fetchError || !order) throw new Error("Commande introuvable");
+
+    const { data: items, error: itemsError } = await admin.from("order_items").select("*").eq("order_id", data.id);
+    if (itemsError) throw new Error(itemsError.message);
+
+    // restore stock
+    for (const item of items ?? []) {
+      const { data: product } = await admin.from("products").select("stock").eq("id", item.product_id).single();
+      if (product) {
+        await admin.from("products").update({ stock: (product.stock ?? 0) + item.quantity }).eq("id", item.product_id);
+      }
+    }
+
+    await admin.from("orders").update({ status: "cancelled" }).eq("id", data.id);
+    await admin.from("order_events").insert({
+      order_id: data.id,
+      actor_id: user.id,
+      from_status: order.status,
+      to_status: "cancelled",
+      comment: data.reason,
+    });
+
+    return { ok: true };
+  });
+
 export const createPhoneOrder = adminFn("POST")
   .validator(
     (payload: {
