@@ -150,4 +150,13 @@
     background-color: var(--color-gold);
     color: var(--color-primary-foreground);
   }
+
+  :focus-visible {
+    outline: 2px solid oklch(0.76 0.112 78 / 70%);
+    outline-offset: 2px;
+  }
+
+  button, a, input, textarea, select {
+    outline-offset: 3px;
+  }
 }

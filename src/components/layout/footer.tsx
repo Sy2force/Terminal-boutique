@@ -8,6 +8,7 @@ const nav = [
   { label: "Sarfati", to: "/sarfati" },
   { label: "Charcuterie", to: "/charcuterie" },
   { label: "Nouveautés", to: "/nouveautes" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export function Footer() {

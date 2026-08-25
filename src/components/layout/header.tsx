@@ -15,6 +15,7 @@ const nav = [
   { label: "Spiritueux", to: "/spiritueux" },
   { label: "Plateaux", to: "/plateaux" },
   { label: "Nouveautés", to: "/nouveautes" },
+  { label: "Contact", to: "/contact" },
 ];
 
 interface HeaderProps {
@@ -140,7 +141,7 @@ export function Header({ onOpenSearch }: HeaderProps) {
             className="fixed inset-0 z-[90] bg-background/98 backdrop-blur-xl flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-[4.5rem]">
-              <span className="font-display text-cream text-lg tracking-[0.42em] uppercase">{SITE.name}</span>
+              <span className="font-display text-gold-gradient text-lg tracking-[0.42em] uppercase">{SITE.name}</span>
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
@@ -150,16 +151,29 @@ export function Header({ onOpenSearch }: HeaderProps) {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <nav className="flex-1 flex flex-col items-center justify-center gap-8">
+            <nav className="flex-1 flex flex-col items-center justify-center gap-6 overflow-y-auto px-6 pb-8">
               {nav.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="font-display text-3xl text-cream hover:text-primary transition-colors tracking-[0.15em] uppercase"
+                  className="font-display text-2xl md:text-3xl text-cream hover:text-gold transition-colors tracking-[0.12em] uppercase"
                 >
                   {item.label}
                 </Link>
               ))}
+              <div className="pt-8 flex items-center gap-8">
+                {user ? (
+                  <Link to="/compte/favoris" className="p-3 text-muted-foreground hover:text-gold transition-colors" aria-label="Favoris">
+                    <Heart className="w-6 h-6" />
+                  </Link>
+                ) : null}
+                <Link to={user ? "/compte" : "/auth"} className="p-3 text-muted-foreground hover:text-gold transition-colors" aria-label={user ? "Mon compte" : "Se connecter"}>
+                  <User className="w-6 h-6" />
+                </Link>
+                <Link to="/panier" className="p-3 text-muted-foreground hover:text-gold transition-colors" aria-label="Panier">
+                  <ShoppingBag className="w-6 h-6" />
+                </Link>
+              </div>
             </nav>
           </motion.div>
         )}

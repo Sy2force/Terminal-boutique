@@ -22,6 +22,7 @@ import { Route as PlateauxRouteImport } from './routes/plateaux'
 import { Route as PrestigeRouteImport } from './routes/prestige'
 import { Route as PromotionsRouteImport } from './routes/promotions'
 import { Route as SarfatiRouteImport } from './routes/sarfati'
+import { Route as SaumonRouteImport } from './routes/saumon'
 import { Route as SpiritueuxRouteImport } from './routes/spiritueux'
 import { Route as VinsRouteImport } from './routes/vins'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -107,6 +108,11 @@ const PromotionsRoute = PromotionsRouteImport.update({
 const SarfatiRoute = SarfatiRouteImport.update({
   id: '/sarfati',
   path: '/sarfati',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaumonRoute = SaumonRouteImport.update({
+  id: '/saumon',
+  path: '/saumon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpiritueuxRoute = SpiritueuxRouteImport.update({
@@ -248,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/prestige': typeof PrestigeRoute
   '/promotions': typeof PromotionsRoute
   '/sarfati': typeof SarfatiRoute
+  '/saumon': typeof SaumonRoute
   '/spiritueux': typeof SpiritueuxRoute
   '/vins': typeof VinsRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -284,6 +291,7 @@ export interface FileRoutesByTo {
   '/prestige': typeof PrestigeRoute
   '/promotions': typeof PromotionsRoute
   '/sarfati': typeof SarfatiRoute
+  '/saumon': typeof SaumonRoute
   '/spiritueux': typeof SpiritueuxRoute
   '/vins': typeof VinsRoute
   '/compte': typeof AuthenticatedCompteRouteWithChildren
@@ -321,6 +329,7 @@ export interface FileRoutesById {
   '/prestige': typeof PrestigeRoute
   '/promotions': typeof PromotionsRoute
   '/sarfati': typeof SarfatiRoute
+  '/saumon': typeof SaumonRoute
   '/spiritueux': typeof SpiritueuxRoute
   '/vins': typeof VinsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -359,6 +368,7 @@ export interface FileRouteTypes {
     | '/prestige'
     | '/promotions'
     | '/sarfati'
+    | '/saumon'
     | '/spiritueux'
     | '/vins'
     | '/admin'
@@ -395,6 +405,7 @@ export interface FileRouteTypes {
     | '/prestige'
     | '/promotions'
     | '/sarfati'
+    | '/saumon'
     | '/spiritueux'
     | '/vins'
     | '/compte'
@@ -431,6 +442,7 @@ export interface FileRouteTypes {
     | '/prestige'
     | '/promotions'
     | '/sarfati'
+    | '/saumon'
     | '/spiritueux'
     | '/vins'
     | '/_authenticated/admin'
@@ -469,6 +481,7 @@ export interface RootRouteChildren {
   PrestigeRoute: typeof PrestigeRoute
   PromotionsRoute: typeof PromotionsRoute
   SarfatiRoute: typeof SarfatiRoute
+  SaumonRoute: typeof SaumonRoute
   SpiritueuxRoute: typeof SpiritueuxRoute
   VinsRoute: typeof VinsRoute
   ProduitSlugRoute: typeof ProduitSlugRoute
@@ -565,6 +578,13 @@ declare module '@tanstack/react-router' {
       path: '/sarfati'
       fullPath: '/sarfati'
       preLoaderRoute: typeof SarfatiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saumon': {
+      id: '/saumon'
+      path: '/saumon'
+      fullPath: '/saumon'
+      preLoaderRoute: typeof SaumonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/spiritueux': {
@@ -806,6 +826,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrestigeRoute: PrestigeRoute,
   PromotionsRoute: PromotionsRoute,
   SarfatiRoute: SarfatiRoute,
+  SaumonRoute: SaumonRoute,
   SpiritueuxRoute: SpiritueuxRoute,
   VinsRoute: VinsRoute,
   ProduitSlugRoute: ProduitSlugRoute,
