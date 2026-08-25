@@ -42,7 +42,7 @@ function ContactPage() {
                   <div>
                     <p className="text-cream text-sm">WhatsApp</p>
                     <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="text-muted-foreground font-light text-sm hover:text-gold transition-colors">
-                      {SITE.phone}
+                      +{SITE.whatsappNumber}
                     </a>
                   </div>
                 </li>
