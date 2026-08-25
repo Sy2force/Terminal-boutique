@@ -35,9 +35,26 @@
 4. Run `node scripts/seed-admin.mjs` once with `ADMIN_PASSWORD` set (default e-mail `admin@terminal3.co.il`).
 5. Change the admin password after first login and enable 2FA.
 
+## Manual QA checklist (after Supabase setup)
+
+1. Admin login works and non-admin users get "Accès refusé" on `/admin`.
+2. Client accounts cannot read admin-only data through API (RLS blocks direct `select * from orders`).
+3. Admin changes to product price/title/summary/image appear on the vitrine after reload.
+4. Scheduled banners respect `starts_at` / `ends_at`.
+5. Admin-created promotions apply in cart totals.
+6. Favorites persist across logout/login.
+7. Pickup order flow creates a `pending` order.
+8. Out-of-zone delivery is rejected in checkout.
+9. Telephone orders work from `/admin/commande-telephone`.
+10. Alcohol orders cannot be marked `completed` before Teoudat Zeout verification.
+11. Orders cannot be `completed` without recorded payment.
+12. Server ignores forged client totals (tested by sending a tampered total in `createOrder`).
+13. No admin password or service role key appears in browser bundles.
+
 ## Notes
 - The build emits `dist/client` and `dist/server`. A small Node wrapper (`server.mjs`) serves static files from `dist/client` and SSR from `dist/server/server.js`.
 - Images in `src/assets/` are SVG placeholders. Replace them with real JPG assets uploaded via `/admin/medias` (Supabase Storage bucket `media`).
 - All colors are semantic tokens; no hard-coded `text-white`/`bg-black` classes are used.
 - Admin areas are protected by `requireAdmin` middleware that checks `user_roles` via the `has_role` Postgres function.
 - Order totals are recalculated server-side in `createOrder` / `createPhoneOrder`; never trust client cart amounts.
+- The site falls back to the local mock catalog when Supabase env vars are not configured.
