@@ -66,10 +66,10 @@ function CartPage() {
                     <p className="text-sm text-primary mt-3">{formatPrice(product.price)}</p>
                   </div>
                   <div className="flex sm:flex-col items-center sm:items-end justify-between gap-4">
-                    <div className="flex items-center border border-input rounded-[2px]">
-                      <button type="button" onClick={() => setQty(product.slug, item.qty - 1)} className="px-3 py-2 text-cream hover:text-primary" aria-label="Diminuer">−</button>
+                    <div className="flex items-center border border-primary/20 rounded-[2px] bg-card/30">
+                      <button type="button" onClick={() => setQty(product.slug, item.qty - 1)} className="px-3 py-2 text-cream hover:text-gold transition-colors" aria-label="Diminuer">−</button>
                       <span className="w-8 text-center text-sm text-cream">{item.qty}</span>
-                      <button type="button" onClick={() => setQty(product.slug, item.qty + 1)} className="px-3 py-2 text-cream hover:text-primary" aria-label="Augmenter">+</button>
+                      <button type="button" onClick={() => setQty(product.slug, item.qty + 1)} className="px-3 py-2 text-cream hover:text-gold transition-colors" aria-label="Augmenter">+</button>
                     </div>
                     <p className="font-display text-lg text-cream min-w-[4rem] text-right">{formatPrice(lineTotal)}</p>
                     <button
@@ -93,7 +93,7 @@ function CartPage() {
             </button>
           </div>
 
-          <aside className="lg:sticky lg:top-24 h-fit p-6 md:p-8 border border-primary/10 bg-secondary/30 rounded-[2px]">
+          <aside className="lg:sticky lg:top-24 h-fit p-6 md:p-8 card-luxe glow-gold rounded-[2px]">
             <h2 className="font-display text-2xl text-cream mb-6">Récapitulatif</h2>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between text-muted-foreground font-light">
@@ -115,7 +115,7 @@ function CartPage() {
             <div className="mt-8 space-y-4">
               <Link
                 to="/checkout"
-                className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-[11px] uppercase tracking-[0.3em] hover:opacity-90 transition-opacity"
+                className="w-full flex items-center justify-center gap-3 btn-gold btn-gold-hover px-8 py-4 text-[11px] uppercase tracking-[0.3em]"
               >
                 Valider la commande <ArrowRight className="w-4 h-4" />
               </Link>
