@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bgp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161310"/>
+      <stop offset="100%" stop-color="#080605"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgp)"/>
+  <g transform="translate(400,400)">
+    <rect x="-280" y="-280" width="560" height="560" rx="2" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="-100" cy="-100" r="70" fill="#3a221f" opacity="0.8"/>
+    <circle cx="120" cy="-80" r="80" fill="#4a2b25" opacity="0.8"/>
+    <circle cx="-60" cy="120" r="75" fill="#5a3a30" opacity="0.8"/>
+    <circle cx="140" cy="130" r="65" fill="#8f3b2d" opacity="0.8"/>
+    <text x="0" y="240" text-anchor="middle" fill="#c9a96e" font-family="serif" font-size="18" letter-spacing="0.25em" opacity="0.8">Plateau signature</text>
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { createBrowserSupabase } from "@/lib/supabase";
+import { toast } from "sonner";
+
+export const Route = createFileRoute("/auth")({
+  component: AuthPage,
+});
+
+function AuthPage() {
+  const supabase = createBrowserSupabase();
+  const [isLogin, setIsLogin] = useState(true);
+
+  if (!supabase) {
+    return (
+      <main className="min-h-screen flex items-center justify-center px-6">
+        <p className="text-muted-foreground">Authentification non configurée.</p>
+      </main>
+    );
+  }
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isLogin) {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) toast.error(error.message);
+      else window.location.href = "/compte";
+    } else {
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) toast.error(error.message);
+      else toast.success("Compte créé. Vérifiez votre e-mail si demandé.");
+    }
+  };
+
+  return (
+    <main className="min-h-screen flex items-center justify-center px-6 py-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl w-full items-center">
+        <div className="hidden lg:block">
+          <p className="eyebrow mb-6">Terminal 3</p>
+          <h1 className="font-display text-5xl xl:text-6xl text-cream leading-[1.1] mb-8">
+            L''art du bon goût
+          </h1>
+          <p className="text-muted-foreground font-light max-w-md">
+            Connectez-vous pour enregistrer vos favoris, suivre vos commandes et recevoir nos offres privilèges.
+          </p>
+        </div>
+        <form onSubmit={submit} className="card-luxe p-8 md:p-12 rounded-[2px] space-y-6 max-w-md mx-auto w-full">
+          <h2 className="font-display text-3xl text-cream text-center">{isLogin ? "Connexion" : "Créer un compte"}</h2>
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full bg-transparent border border-input text-cream px-4 py-4 rounded-[2px] focus:outline-none focus:border-primary"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full bg-transparent border border-input text-cream px-4 py-4 rounded-[2px] focus:outline-none focus:border-primary"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-primary text-primary-foreground py-4 text-[11px] uppercase tracking-[0.3em] hover:opacity-90 transition-opacity"
+          >
+            {isLogin ? "Se connecter" : "Créer un compte"}
+          </button>
+          <p className="text-center text-sm text-muted-foreground">
+            {isLogin ? "Pas encore de compte ?" : "Déjà un compte ?"}{" "}
+            <button
+              type="button"
+              onClick={() => setIsLogin(!isLogin)}
+              className="text-primary underline underline-offset-4 hover:text-cream transition-colors"
+            >
+              {isLogin ? "S''inscrire" : "Se connecter"}
+            </button>
+          </p>
+          <Link to="/" className="block text-center text-xs text-muted-foreground hover:text-primary transition-colors">
+            Retour à l''accueil
+          </Link>
+        </form>
+      </div>
+    </main>
+  );
+}

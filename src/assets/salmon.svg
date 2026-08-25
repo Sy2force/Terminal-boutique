@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181412"/>
+      <stop offset="100%" stop-color="#0a0807"/>
+    </linearGradient>
+    <linearGradient id="salmon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e68a72"/>
+      <stop offset="50%" stop-color="#d46a55"/>
+      <stop offset="100%" stop-color="#b54a3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgf)"/>
+  <g transform="translate(400,300)">
+    <rect x="-260" y="-120" width="520" height="240" rx="2" fill="#222" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+    <g opacity="0.85">
+      <ellipse cx="-120" cy="0" rx="90" ry="45" fill="url(#salmon)"/>
+      <ellipse cx="40" cy="10" rx="100" ry="48" fill="url(#salmon)"/>
+      <ellipse cx="180" cy="-5" rx="85" ry="42" fill="url(#salmon)"/>
+    </g>
+    <text x="0" y="110" text-anchor="middle" fill="#c9a96e" font-family="serif" font-size="16" letter-spacing="0.25em" opacity="0.8">Saumon fumé</text>
+  </g>
+</svg>

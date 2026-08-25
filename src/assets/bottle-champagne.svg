@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="bgc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181412"/>
+      <stop offset="100%" stop-color="#0a0807"/>
+    </linearGradient>
+    <linearGradient id="bottlec" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#4a3b2a"/>
+      <stop offset="40%" stop-color="#8a734d"/>
+      <stop offset="60%" stop-color="#4a3b2a"/>
+      <stop offset="100%" stop-color="#2a2116"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgc)"/>
+  <g transform="translate(300,420)">
+    <path d="M-70 -330 L-50 -230 C-50 -190 -100 -150 -100 80 L-100 360 L100 360 L100 80 C100 -150 50 -190 50 -230 L70 -330 Z" fill="url(#bottlec)" stroke="#c9a96e" stroke-width="0.5" opacity="0.95"/>
+    <rect x="-60" y="-280" width="120" height="50" fill="#111" opacity="0.4"/>
+    <circle cx="0" cy="-255" r="14" fill="#c9a96e" opacity="0.7"/>
+    <text x="0" y="220" text-anchor="middle" fill="#c9a96e" font-family="serif" font-size="18" letter-spacing="0.2em" opacity="0.9">Champagne</text>
+  </g>
+</svg>
