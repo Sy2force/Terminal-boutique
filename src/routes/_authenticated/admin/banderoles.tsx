@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { listAdminBanners, upsertBanner, deleteBanner } from "@/lib/functions/admin.functions";
+import { listAdminBanners, upsertBanner, deleteBanner } from "@/backend/functions/admin.functions";
 
 const placements = ["home_top", "home_mid", "category", "global_ribbon"];
 const themes = ["gold", "bordeaux", "dark"];

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 
 interface MediaPickerProps {
   value: string;

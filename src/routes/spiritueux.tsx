@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CategoryPage } from "@/components/routes/category-page";
-import { IMAGES } from "@/data/catalog";
-import { listProducts } from "@/lib/functions/public.functions";
-import { getPageContent } from "@/lib/functions/public.functions";
-import { mapDbProduct } from "@/lib/mappers";
+import { CategoryPage } from "@/components/category-page";
+import { IMAGES } from "@/shared/data/catalog";
+import { listProducts } from "@/backend/functions/public.functions";
+import { getPageContent } from "@/backend/functions/public.functions";
+import { mapDbProduct } from "@/shared/lib/mappers";
 
 export const Route = createFileRoute("/spiritueux")({
   loader: async () => {

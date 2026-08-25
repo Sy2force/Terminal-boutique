@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
-import { requireSupabaseAuth } from "@/lib/auth-middleware";
-import { getAdminSupabase } from "@/lib/supabase-server";
-import { calculateTotals } from "@/lib/order-calculator";
+import { requireSupabaseAuth } from "@/backend/auth-middleware";
+import { getAdminSupabase } from "@/backend/supabase-server";
+import { calculateTotals } from "@/shared/lib/order-calculator";
 export const getProfile = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {

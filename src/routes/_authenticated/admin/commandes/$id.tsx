@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { getAdminOrder, updateOrderStatus, confirmIdChecked, markOrderPaid, cancelOrder } from "@/lib/functions/admin.functions";
-import type { Database } from "@/types/database";
+import { getAdminOrder, updateOrderStatus, confirmIdChecked, markOrderPaid, cancelOrder } from "@/backend/functions/admin.functions";
+import type { Database } from "@/shared/types/database";
 
 type PaymentMethod = Database["public"]["Enums"]["payment_method"];
 

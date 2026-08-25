@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { listMyFavorites } from "@/lib/functions/client.functions";
-import { formatPrice } from "@/lib/format";
+import { listMyFavorites } from "@/backend/functions/client.functions";
+import { formatPrice } from "@/shared/lib/format";
 
 export const Route = createFileRoute("/_authenticated/compte/favoris")({
   loader: async () => listMyFavorites(),

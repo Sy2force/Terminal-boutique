@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { getDashboardStats } from "@/lib/functions/admin.functions";
+import { getDashboardStats } from "@/backend/functions/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/admin/")({
   loader: async () => getDashboardStats(),

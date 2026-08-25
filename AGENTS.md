@@ -11,29 +11,43 @@
 - `npm run build` — production build (client + SSR)
 - `npm run start` — production server via `server.mjs` (Node)
 - `npm run typecheck` — TypeScript check
+- `npm run test:rls` — RLS smoke tests
+- `npm run setup:storage` — create the Supabase Storage `media` bucket
+- `npm run seed:admin` — bootstrap the first admin user
 
 ## Project structure
 - `src/routes/` — file-based routing (`__root.tsx`, index, category pages, auth, account, admin)
-- `src/data/catalog.ts` — mock products, promotions, image exports (used for the static seed only)
-- `src/lib/cart.tsx` — React context cart with `localStorage`
-- `src/lib/promotions.ts` — promotion engine and cart totals for local cart display
-- `src/lib/order-calculator.ts` — server-side order total calculator (uses DB promotions)
-- `src/lib/supabase.ts` — browser Supabase client
-- `src/lib/supabase-server.ts` — server Supabase clients (public + admin)
-- `src/lib/auth-middleware.ts` — TanStack Start middleware requiring auth / admin role
-- `src/lib/functions/*.functions.ts` — `createServerFn` RPC layer (public, client, admin)
+- `src/components/` — React components (ui, layout, widgets, admin)
+- `src/backend/`
+  - `functions/*.functions.ts` — `createServerFn` RPC layer (public, client, admin)
+  - `auth-middleware.ts` — require auth / admin
+  - `supabase-server.ts` — admin + public Supabase clients
+- `src/shared/`
+  - `lib/cart.tsx` — React context cart with `localStorage`
+  - `lib/promotions.ts` — promotion engine and cart totals for local cart display
+  - `lib/order-calculator.ts` — server-side order total calculator
+  - `lib/supabase.ts` — browser Supabase client
+  - `lib/site.ts` — brand constants and helpers
+  - `lib/format.ts` — price formatting
+  - `lib/mappers.ts` — DB to app type mapping
+  - `lib/mock-fallback.ts` — static fallback catalog and page content
+  - `data/catalog.ts` — mock products used for the static seed
+  - `types/database.ts` — Supabase/DB TypeScript types
+- `src/styles.css` — Tailwind v3 tokens and custom utilities
+- `src/client.tsx` + `src/router.tsx` — TanStack Start entry points
 - `supabase/migrations/0001_schema.sql` — full DB schema, RLS, triggers
 - `supabase/seed.sql` — initial page content, delivery zones, products, promotions, banners
 - `scripts/seed-admin.mjs` — one-time admin bootstrap (reads password from env)
-- `src/styles.css` — Tailwind v4 tokens and custom utilities
+- `scripts/setup-supabase.mjs` — create the Supabase Storage `media` bucket
 - `public/robots.txt` + `public/favicon.svg`
 
 ## Supabase setup
 1. Create a Supabase project (or enable Lovable Cloud).
 2. Run `supabase/migrations/0001_schema.sql` then `supabase/seed.sql`.
-3. Set env vars in `.env` (see `.env.example`) and in Supabase dashboard.
-4. Run `node scripts/seed-admin.mjs` once with `ADMIN_PASSWORD` set (default e-mail `admin@terminal3.co.il`).
-5. Change the admin password after first login and enable 2FA.
+3. Run `npm run setup:storage` to create the `media` bucket.
+4. Set env vars in `.env` (see `.env.example`) and in Supabase dashboard.
+5. Run `npm run seed:admin` once with `ADMIN_PASSWORD` set (default e-mail `admin@terminal3.co.il`).
+6. Change the admin password after first login and enable 2FA.
 
 ## Manual QA checklist (after Supabase setup)
 

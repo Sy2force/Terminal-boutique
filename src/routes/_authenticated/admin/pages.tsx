@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { listAdminPageContent, updatePageContent } from "@/lib/functions/admin.functions";
+import { listAdminPageContent, updatePageContent } from "@/backend/functions/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/admin/pages")({
   loader: async () => listAdminPageContent(),

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { SITE, whatsappHref } from "@/lib/site";
+import { SITE, whatsappHref } from "@/shared/lib/site";
 
 const nav = [
   { label: "Accueil", to: "/" },

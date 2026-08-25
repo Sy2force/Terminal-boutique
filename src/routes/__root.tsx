@@ -1,13 +1,13 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { CartProvider } from "@/lib/cart";
+import { CartProvider } from "@/shared/lib/cart";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/widgets/whatsapp-button";
 import { AgeGate } from "@/components/widgets/age-gate";
 import { SearchOverlay } from "@/components/widgets/search-overlay";
 import { Toaster } from "sonner";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/shared/lib/site";
 import { useState } from "react";
 import "@/styles.css";
 

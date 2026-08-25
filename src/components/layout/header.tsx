@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, X, Search, ShoppingBag, User, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useCart } from "@/lib/cart";
-import { SITE } from "@/lib/site";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { useCart } from "@/shared/lib/cart";
+import { SITE } from "@/shared/lib/site";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 
 const nav = [
   { label: "Accueil", to: "/" },

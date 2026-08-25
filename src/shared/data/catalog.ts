@@ -6,8 +6,8 @@ import spirits from "@/assets/spirits.svg";
 import salmon from "@/assets/salmon.svg";
 import charcuterie from "@/assets/charcuterie.svg";
 import plateau from "@/assets/plateau.svg";
-import type { Department, Product, Promotion } from "@/types/product";
-import { daysAgoIso } from "@/lib/format";
+import type { Department, Product, Promotion } from "@/shared/types/product";
+import { daysAgoIso } from "@/shared/lib/format";
 
 export const IMAGES = {
   hero: heroBottles,

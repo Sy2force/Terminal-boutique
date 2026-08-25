@@ -1,8 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
-import { requireAdmin } from "@/lib/auth-middleware";
-import { getAdminSupabase } from "@/lib/supabase-server";
-import { calculateTotals } from "@/lib/order-calculator";
-import type { ProductRow, PromotionRow, BannerRow, PageContentRow, DeliveryZoneRow, OrderStatus, PaymentMethod } from "@/types/database";
+import { requireAdmin } from "@/backend/auth-middleware";
+import { getAdminSupabase } from "@/backend/supabase-server";
+import { calculateTotals } from "@/shared/lib/order-calculator";
+import type { ProductRow, PromotionRow, BannerRow, PageContentRow, DeliveryZoneRow, OrderStatus, PaymentMethod } from "@/shared/types/database";
 
 type ProductInsert = Omit<ProductRow, "id" | "created_at" | "updated_at"> & { id?: string };
 type ProductUpdate = Partial<Omit<ProductRow, "id" | "created_at" | "updated_at">>;

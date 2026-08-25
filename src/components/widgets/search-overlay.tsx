@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, X } from "lucide-react";
-import { PRODUCTS } from "@/data/catalog";
-import { formatPrice } from "@/lib/format";
+import { PRODUCTS } from "@/shared/data/catalog";
+import { formatPrice } from "@/shared/lib/format";
 
 interface SearchOverlayProps {
   isOpen: boolean;

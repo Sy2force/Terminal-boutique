@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { listAdminClients } from "@/lib/functions/admin.functions";
+import { listAdminClients } from "@/backend/functions/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/admin/clients")({
   loader: async () => listAdminClients(),

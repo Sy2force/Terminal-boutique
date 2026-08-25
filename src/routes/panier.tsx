@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Trash2, ArrowRight } from "lucide-react";
-import { useCart } from "@/lib/cart";
+import { useCart } from "@/shared/lib/cart";
 import { useMemo } from "react";
-import { PRODUCTS, PROMOTIONS } from "@/data/catalog";
-import { cartTotals } from "@/lib/promotions";
-import { formatPrice } from "@/lib/format";
+import { PRODUCTS, PROMOTIONS } from "@/shared/data/catalog";
+import { cartTotals } from "@/shared/lib/promotions";
+import { formatPrice } from "@/shared/lib/format";
 
 export const Route = createFileRoute("/panier")({
   head: () => ({

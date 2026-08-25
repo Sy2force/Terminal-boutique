@@ -1,16 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { IMAGES } from "@/data/catalog";
-import { SITE, whatsappHref } from "@/lib/site";
+import { IMAGES } from "@/shared/data/catalog";
+import { SITE, whatsappHref } from "@/shared/lib/site";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ProductGrid } from "@/components/ui/product-grid";
-import { listProducts } from "@/lib/functions/public.functions";
-import { listPromotions } from "@/lib/functions/public.functions";
-import { listBanners } from "@/lib/functions/public.functions";
-import { getPageContent } from "@/lib/functions/public.functions";
-import { mapDbProduct, mapDbPromotion } from "@/lib/mappers";
+import { listProducts } from "@/backend/functions/public.functions";
+import { listPromotions } from "@/backend/functions/public.functions";
+import { listBanners } from "@/backend/functions/public.functions";
+import { getPageContent } from "@/backend/functions/public.functions";
+import { mapDbProduct, mapDbPromotion } from "@/shared/lib/mappers";
 
 export const Route = createFileRoute("/")({
   loader: async () => {

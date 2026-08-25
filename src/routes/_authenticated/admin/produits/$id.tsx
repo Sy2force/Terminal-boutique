@@ -1,6 +1,6 @@
 import { createFileRoute, useParams, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { listAdminProducts, upsertProduct, deleteProduct } from "@/lib/functions/admin.functions";
+import { listAdminProducts, upsertProduct, deleteProduct } from "@/backend/functions/admin.functions";
 import { useServerFn } from "@tanstack/react-start";
 import { MediaPicker } from "@/components/admin/media-picker";
 

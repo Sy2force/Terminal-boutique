@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { ProductGrid } from "@/components/ui/product-grid";
-import { ACTIVE_PROMOTIONS, PRODUCTS, IMAGES } from "@/data/catalog";
-import { promotionApplies } from "@/lib/promotions";
+import { ACTIVE_PROMOTIONS, PRODUCTS, IMAGES } from "@/shared/data/catalog";
+import { promotionApplies } from "@/shared/lib/promotions";
 
 export const Route = createFileRoute("/promotions")({
   head: () => ({

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { getProfile, updateProfile } from "@/lib/functions/client.functions";
+import { getProfile, updateProfile } from "@/backend/functions/client.functions";
 
 export const Route = createFileRoute("/_authenticated/compte/profil")({
   loader: async () => getProfile(),

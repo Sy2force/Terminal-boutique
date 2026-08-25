@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/ui/page-hero";
 import { CatalogView } from "@/components/ui/catalog-view";
 import { Reveal } from "@/components/ui/reveal";
-import { NEWEST, IMAGES } from "@/data/catalog";
+import { NEWEST, IMAGES } from "@/shared/data/catalog";
 
 export const Route = createFileRoute("/nouveautes")({
   head: () => ({

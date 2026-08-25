@@ -73,23 +73,33 @@ npm run start
 | `npm run start` | Serveur de production |
 | `npm run typecheck` | Vérification TypeScript |
 | `npm run test:rls` | Smoke tests RLS (requiert les variables d'env) |
-| `node scripts/seed-admin.mjs` | Crée le compte administrateur |
+| `npm run setup:storage` | Crée le bucket Supabase Storage `media` |
+| `npm run seed:admin` | Crée le compte administrateur |
 
 ## Structure du projet
 
 ```
 src/
-  routes/           # Pages TanStack Router
-  components/       # Composants React
-  lib/              # Logique métier (panier, Supabase, promotions, etc.)
-  data/catalog.ts   # Catalogue de démonstration local
-  styles.css        # Tokens Tailwind + utilitaires luxe
+  routes/             # Pages TanStack Router (file-based routing)
+  components/         # Composants React
+  backend/            # Fonctions serveur, auth, Supabase admin
+    functions/        # server functions (public, client, admin)
+    auth-middleware.ts
+    supabase-server.ts
+  shared/             # Logique partagée, types, mock data
+    lib/              # cart, site, format, mappers, promotions, order-calculator, supabase
+    data/             # Catalogue de démonstration local
+    types/            # Types TypeScript
+  styles.css          # Tokens Tailwind + utilitaires luxe
+  client.tsx          # Entry client
+  router.tsx          # Entry router
 supabase/
-  migrations/       # Schéma PostgreSQL
-  seed.sql          # Données initiales
+  migrations/         # Schéma PostgreSQL
+  seed.sql            # Données initiales
 scripts/
-  seed-admin.mjs    # Bootstrap admin
-  test-rls.mjs      # Tests de sécurité RLS
+  seed-admin.mjs      # Bootstrap admin
+  setup-supabase.mjs  # Configuration Supabase Storage
+  test-rls.mjs        # Tests de sécurité RLS
 ```
 
 ## Gestion du contenu

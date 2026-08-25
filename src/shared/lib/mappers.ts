@@ -1,4 +1,4 @@
-import type { Product, Promotion } from "@/types/product";
+import type { Product, Promotion } from "@/shared/types/product";
 
 export function mapDbProduct(p: any): Product {
   return {

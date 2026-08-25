@@ -2,12 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
-import { useCart } from "@/lib/cart";
-import { formatPrice } from "@/lib/format";
-import { bestPromotionFor, discountFor } from "@/lib/promotions";
+import { useCart } from "@/shared/lib/cart";
+import { formatPrice } from "@/shared/lib/format";
+import { bestPromotionFor, discountFor } from "@/shared/lib/promotions";
 import { FavoriteButton } from "@/components/widgets/favorite-button";
-import { getProductBySlug, listProducts, listPromotions } from "@/lib/functions/public.functions";
-import { mapDbProduct, mapDbPromotion } from "@/lib/mappers";
+import { getProductBySlug, listProducts, listPromotions } from "@/backend/functions/public.functions";
+import { mapDbProduct, mapDbPromotion } from "@/shared/lib/mappers";
 
 export const Route = createFileRoute("/produit/$slug")({
   loader: async ({ params }) => {

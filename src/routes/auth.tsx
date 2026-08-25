@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/auth")({

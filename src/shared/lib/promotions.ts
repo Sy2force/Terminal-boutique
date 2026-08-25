@@ -1,4 +1,4 @@
-import type { Product, Promotion } from "@/types/product";
+import type { Product, Promotion } from "@/shared/types/product";
 
 export function promotionApplies(promo: Promotion, product: Product) {
   if (!promo.active) return false;

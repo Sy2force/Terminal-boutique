@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PREMIUM, IMAGES } from "@/data/catalog";
+import { PREMIUM, IMAGES } from "@/shared/data/catalog";
 import { Reveal } from "@/components/ui/reveal";
 
 export const Route = createFileRoute("/prestige")({

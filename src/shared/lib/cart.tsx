@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { toast } from "sonner";
-import type { Product } from "@/types/product";
+import type { Product } from "@/shared/types/product";
 
 export interface CartItem {
   slug: string;

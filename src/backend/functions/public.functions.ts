@@ -1,12 +1,12 @@
 import { createServerFn } from "@tanstack/react-start";
-import { getPublicSupabase } from "@/lib/supabase-server";
+import { getPublicSupabase } from "@/backend/supabase-server";
 import {
   fallbackProducts,
   fallbackPromotions,
   fallbackBanners,
   fallbackPageContent,
   fallbackDeliveryZones,
-} from "@/lib/mock-fallback";
+} from "@/shared/lib/mock-fallback";
 
 function isConfigured() {
   return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY);

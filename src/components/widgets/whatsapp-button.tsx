@@ -1,5 +1,5 @@
 import { MessageCircle } from "lucide-react";
-import { whatsappHref } from "@/lib/site";
+import { whatsappHref } from "@/shared/lib/site";
 
 export function WhatsAppButton() {
   return (

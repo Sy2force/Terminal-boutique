@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { useCart } from "@/lib/cart";
-import { formatPrice } from "@/lib/format";
-import { createOrder } from "@/lib/functions/client.functions";
-import { listProducts, listPromotions, listDeliveryZones } from "@/lib/functions/public.functions";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { useCart } from "@/shared/lib/cart";
+import { formatPrice } from "@/shared/lib/format";
+import { createOrder } from "@/backend/functions/client.functions";
+import { listProducts, listPromotions, listDeliveryZones } from "@/backend/functions/public.functions";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 import { useServerFn } from "@tanstack/react-start";
-import { whatsappHref } from "@/lib/site";
+import { whatsappHref } from "@/shared/lib/site";
 import { CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/checkout")({

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/shared/lib/site";
 
 const STORAGE_KEY = "t3-age-ok";
 

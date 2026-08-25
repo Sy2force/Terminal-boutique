@@ -1,8 +1,8 @@
 import { PageHero } from "@/components/ui/page-hero";
 import { CatalogView } from "@/components/ui/catalog-view";
 import { Reveal } from "@/components/ui/reveal";
-import type { Department, Product } from "@/types/product";
-import { byDepartment, IMAGES } from "@/data/catalog";
+import type { Department, Product } from "@/shared/types/product";
+import { byDepartment, IMAGES } from "@/shared/data/catalog";
 
 interface CategoryPageProps {
   eyebrow: string;

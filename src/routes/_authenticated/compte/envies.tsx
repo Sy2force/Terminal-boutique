@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { listMyWishlist } from "@/lib/functions/client.functions";
-import { formatPrice } from "@/lib/format";
+import { listMyWishlist } from "@/backend/functions/client.functions";
+import { formatPrice } from "@/shared/lib/format";
 import { ShoppingBag } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/compte/envies")({

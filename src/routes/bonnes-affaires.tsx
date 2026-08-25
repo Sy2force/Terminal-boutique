@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/ui/page-hero";
 import { ProductGrid } from "@/components/ui/product-grid";
 import { Reveal } from "@/components/ui/reveal";
-import { PRODUCTS, IMAGES } from "@/data/catalog";
-import { PROMOTIONS } from "@/data/catalog";
-import { bestPromotionFor, discountFor } from "@/lib/promotions";
+import { PRODUCTS, IMAGES } from "@/shared/data/catalog";
+import { PROMOTIONS } from "@/shared/data/catalog";
+import { bestPromotionFor, discountFor } from "@/shared/lib/promotions";
 
 export const Route = createFileRoute("/bonnes-affaires")({
   head: () => ({

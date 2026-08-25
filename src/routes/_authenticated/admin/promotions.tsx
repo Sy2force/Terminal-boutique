@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { listAdminPromotions, upsertPromotion, deletePromotion } from "@/lib/functions/admin.functions";
+import { listAdminPromotions, upsertPromotion, deletePromotion } from "@/backend/functions/admin.functions";
 
 const types = ["percent", "fixed", "special_price", "x_for_y", "bundle"];
 

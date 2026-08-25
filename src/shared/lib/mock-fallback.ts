@@ -1,4 +1,4 @@
-import { PRODUCTS, PROMOTIONS, IMAGES } from "@/data/catalog";
+import { PRODUCTS, PROMOTIONS, IMAGES } from "@/shared/data/catalog";
 
 export function fallbackProducts() {
   return PRODUCTS.map((p) => ({

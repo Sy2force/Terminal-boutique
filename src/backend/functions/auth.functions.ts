@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
 import { createServerClient, parseCookieHeader } from "@supabase/ssr";
-import { getPublicSupabase } from "@/lib/supabase-server";
+import { getPublicSupabase } from "@/backend/supabase-server";
 
 const url = process.env.SUPABASE_URL;
 const anonKey = process.env.SUPABASE_ANON_KEY;

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { listAdminDeliveryZones, upsertDeliveryZone, deleteDeliveryZone } from "@/lib/functions/admin.functions";
+import { listAdminDeliveryZones, upsertDeliveryZone, deleteDeliveryZone } from "@/backend/functions/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/admin/livraison")({
   loader: async () => listAdminDeliveryZones(),

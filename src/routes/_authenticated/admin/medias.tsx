@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 
 export const Route = createFileRoute("/_authenticated/admin/medias")({
   component: AdminMedias,

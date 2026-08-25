@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/ui/page-hero";
 import { CatalogView } from "@/components/ui/catalog-view";
 import { Reveal } from "@/components/ui/reveal";
-import { byDepartment, IMAGES } from "@/data/catalog";
-import { whatsappHref } from "@/lib/site";
+import { byDepartment, IMAGES } from "@/shared/data/catalog";
+import { whatsappHref } from "@/shared/lib/site";
 
 const categories = ["Apéritif", "Mixte", "Prestige", "Dégustation"];
 const steps = ["Choisir", "Personnaliser", "Retirer"];

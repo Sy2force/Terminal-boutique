@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
 import { motion } from "motion/react";
-import { useCart } from "@/lib/cart";
-import { bestPromotionFor, discountFor } from "@/lib/promotions";
-import { formatPrice } from "@/lib/format";
-import type { Product } from "@/types/product";
-import { PROMOTIONS } from "@/data/catalog";
-import { arrivalLabel } from "@/lib/format";
+import { useCart } from "@/shared/lib/cart";
+import { bestPromotionFor, discountFor } from "@/shared/lib/promotions";
+import { formatPrice } from "@/shared/lib/format";
+import type { Product } from "@/shared/types/product";
+import { PROMOTIONS } from "@/shared/data/catalog";
+import { arrivalLabel } from "@/shared/lib/format";
 import { FavoriteButton } from "@/components/widgets/favorite-button";
 
 interface ProductCardProps {

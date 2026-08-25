@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { listMyOrders } from "@/lib/functions/client.functions";
+import { listMyOrders } from "@/backend/functions/client.functions";
 
 export const Route = createFileRoute("/_authenticated/compte/commandes/")({
   loader: async () => listMyOrders(),

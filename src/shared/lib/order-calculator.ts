@@ -1,5 +1,5 @@
-import { getPublicSupabase } from "@/lib/supabase-server";
-import type { ProductRow, PromotionRow } from "@/types/database";
+import { getPublicSupabase } from "@/backend/supabase-server";
+import type { ProductRow, PromotionRow } from "@/shared/types/database";
 
 interface CartItemInput {
   slug: string;

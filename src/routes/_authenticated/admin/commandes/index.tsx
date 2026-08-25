@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { listAdminOrders } from "@/lib/functions/admin.functions";
+import { listAdminOrders } from "@/backend/functions/admin.functions";
 
 const statuses = ["pending", "confirmed", "ready", "out_for_delivery", "completed", "cancelled"];
 

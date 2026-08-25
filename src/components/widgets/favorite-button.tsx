@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
-import { createBrowserSupabase } from "@/lib/supabase";
+import { createBrowserSupabase } from "@/shared/lib/supabase";
 
 interface FavoriteButtonProps {
   productId: string;

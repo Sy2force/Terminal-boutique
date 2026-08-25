@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { ProductGrid } from "./product-grid";
-import type { Product } from "@/types/product";
+import type { Product } from "@/shared/types/product";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
