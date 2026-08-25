@@ -13,8 +13,23 @@ function AuthPage() {
 
   if (!supabase) {
     return (
-      <main className="min-h-screen flex items-center justify-center px-6">
-        <p className="text-muted-foreground">Authentification non configurée.</p>
+      <main className="min-h-screen flex items-center justify-center px-6 py-24">
+        <div className="card-luxe p-8 md:p-12 rounded-[2px] max-w-xl w-full text-center space-y-6">
+          <p className="eyebrow">Authentification</p>
+          <h1 className="font-display text-3xl md:text-4xl text-cream">Supabase n'est pas encore configuré</h1>
+          <p className="text-muted-foreground font-light leading-relaxed">
+            Pour activer les comptes clients et l'admin, renseignez les variables d'environnement Supabase dans un fichier <code className="text-gold">.env</code> à la racine du projet.
+          </p>
+          <ol className="text-left text-sm text-muted-foreground space-y-3 list-decimal list-inside">
+            <li>Créez un projet sur <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">supabase.com</a>.</li>
+            <li>Copiez <code className="text-gold">.env.example</code> vers <code className="text-gold">.env</code>.</li>
+            <li>Remplissez <code className="text-gold">SUPABASE_URL</code>, <code className="text-gold">SUPABASE_ANON_KEY</code> et <code className="text-gold">SUPABASE_SERVICE_ROLE_KEY</code> depuis Settings → API.</li>
+            <li>Redémarrez le serveur.</li>
+          </ol>
+          <Link to="/" className="btn-gold inline-flex items-center justify-center gap-2 px-8 py-4 text-[11px] uppercase tracking-[0.3em]">
+            Retour à l'accueil
+          </Link>
+        </div>
       </main>
     );
   }
@@ -40,7 +55,7 @@ function AuthPage() {
         <div className="hidden lg:block">
           <p className="eyebrow mb-6">Terminal 3</p>
           <h1 className="font-display text-5xl xl:text-6xl text-cream leading-[1.1] mb-8">
-            L''art du bon goût
+            L'art du bon goût
           </h1>
           <p className="text-muted-foreground font-light max-w-md">
             Connectez-vous pour enregistrer vos favoris, suivre vos commandes et recevoir nos offres privilèges.
@@ -77,11 +92,11 @@ function AuthPage() {
               onClick={() => setIsLogin(!isLogin)}
               className="text-primary underline underline-offset-4 hover:text-cream transition-colors"
             >
-              {isLogin ? "S''inscrire" : "Se connecter"}
+              {isLogin ? "S'inscrire" : "Se connecter"}
             </button>
           </p>
           <Link to="/" className="block text-center text-xs text-muted-foreground hover:text-primary transition-colors">
-            Retour à l''accueil
+            Retour à l'accueil
           </Link>
         </form>
       </div>
